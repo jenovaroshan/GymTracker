@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GymTracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                🏋️
+            </div>
+
+            <h1>GymTracker</h1>
+
+            <p>Track your workouts. Build your progress.</p>
+        </header>
+
+
+        <!-- STATISTICS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <span class="stat-icon">🏋️</span>
+                <h2 id="workoutCount">0</h2>
+                <p>Workouts</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">💪</span>
+                <h2 id="setCount">0</h2>
+                <p>Sets</p>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">🔁</span>
+                <h2 id="repCount">0</h2>
+                <p>Reps</p>
+            </div>
+
+        </section>
+
+
+        <!-- MENU -->
+        <section class="menu">
+
+            <button onclick="showProfile()">
+                👤 My Profile
+            </button>
+
+            <button onclick="openWorkoutForm()">
+                ➕ Add Workout
+            </button>
+
+            <button onclick="showHistory()">
+                📋 Workout History
+            </button>
+
+            <button onclick="showProgress()">
+                📈 Progress
+            </button>
+
+            <button onclick="calculateBMI()">
+                ⚖️ BMI Calculator
+            </button>
+
+            <button onclick="calculateCalories()">
+                🔥 Calories Calculator
+            </button>
+
+            <button class="danger" onclick="clearData()">
+                🗑️ Clear All Data
+            </button>
+
+        </section>
+
+
+        <!-- WORKOUT FORM -->
+        <section id="workoutSection" class="panel hidden">
+
+            <h2>➕ Add Workout</h2>
+
+            <div class="form-group">
+
+                <label>Exercise Name</label>
+
+                <input
+                    type="text"
+                    id="exerciseInput"
+                    placeholder="Example: Bench Press"
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>Sets</label>
+
+                    <input
+                        type="number"
+                        id="setsInput"
+                        min="1"
+                        placeholder="3"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Reps</label>
+
+                    <input
+                        type="number"
+                        id="repsInput"
+                        min="1"
+                        placeholder="10"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Weight (kg)</label>
+
+                <input
+                    type="number"
+                    id="weightInput"
+                    min="0"
+                    placeholder="20"
+                >
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button onclick="saveWorkout()">
+                    ✅ Save Workout
+                </button>
+
+                <button class="secondary" onclick="closePanels()">
+                    ❌ Cancel
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+        <section id="historySection" class="panel hidden">
+
+            <div class="panel-header">
+
+                <h2>📋 Workout History</h2>
+
+                <button
+                    class="small-btn"
+                    onclick="closePanels()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <div id="historyList"></div>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+        <section id="progressSection" class="panel hidden">
+
+            <div class="panel-header">
+
+                <h2>📈 Your Progress</h2>
+
+                <button
+                    class="small-btn"
+                    onclick="closePanels()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+
+            <div class="progress-box">
+
+                <div class="progress-item">
+
+                    <div class="progress-title">
+                        <span>Total Workouts</span>
+                        <strong id="progressWorkout">0</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            id="workoutProgressBar"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-title">
+                        <span>Total Sets</span>
+                        <strong id="progressSets">0</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            id="setProgressBar"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-title">
+                        <span>Total Reps</span>
+                        <strong id="progressReps">0</strong>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            id="repProgressBar"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 GymTracker | Stay Strong 💪</p>
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
